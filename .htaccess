@@ -1,0 +1,18 @@
+#  HostRule (10)
+Options +FollowSymlinks
+RewriteEngine On
+
+<FilesMatch ".(eot|ttf|otf|woff)">
+  Header set Access-Control-Allow-Origin "*"
+</FilesMatch>
+
+RewriteRule ^questionnaire/([A-Za-z0-9]+)$ step_2.php?hash=$1
+
+RewriteRule ^ajax/get_profile ajax/get_profile.php
+RewriteRule ^ajax/initiate_processing ajax/initiate_processing.php
+RewriteRule ^ajax/get_processing_results ajax/get_processing_results.php
+RewriteRule ^ajax/build_questionnaire ajax/build_questionnaire.php
+
+RewriteRule ^success step_3.php
+
+RewriteRule ^programs programs.php
